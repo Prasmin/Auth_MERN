@@ -1,0 +1,17 @@
+#Cookie banner? 
+  = A cookie banner, cookie notice or cookie popup is a notification often displayed on a user’s first visit to a website that informs them   about the cookies and trackers the site uses and asks for the user’s consent to store cookies on their devices. 
+
+    Cookie banners have now become an indispensable part of the web browsing experience, thanks to privacy regulations like the GDPR in the EU and UK, CCPA/CPRA in the US, LGPD in Brazil, and similar privacy laws across the world. While cookie banners are necessary for compliance, in an increasingly privacy-conscious world, a cookie banner can also communicate your brand value and align with users’ expectations of transparency.
+
+
+# Cookies and sessiona and token 
+  = This is the link that show the difference of cookies, session and token.  https://medium.com/@apdo60311/cookies-vs-sessions-vs-tokens-0de77c1efcc4
+
+
+
+# Best practices for web authentication and authorization
+  =No matter what method you choose, you should always abide by certain best practices to ensure the security and reliability of your web application. These include utilizing HTTPS to encrypt the communication between the client and the server, as well as setting secure flags and attributes for cookies and tokens, such as HttpOnly, Secure, SameSite, and Expiry. Additionally, you should use strong encryption and hashing algorithms for generating and verifying cookies and tokens, keeping your keys and secrets safe and updated. Moreover, it’s important to validate and sanitize user input and output, avoiding exposing sensitive information or error messages that could reveal your system's vulnerabilities. Finally, you should use appropriate mechanisms for managing user sessions and tokens, such as expiration, revocation, refreshment, and invalidation, to prevent unauthorized or prolonged access to your web resources.
+
+
+# 5 JWT authentication best practices for Node.js apps
+  https://medium.com/deno-the-complete-reference/5-jwt-authentication-best-practices-for-node-js-apps-f1aaceda3f81
