@@ -1,21 +1,30 @@
 import { User } from "../models/user-model.js";
+import bcryptjs from "bcryptjs";
+import { generateTokenandSetCokkie } from "../utils/generateTokenandSetCookie.js";
 
 export const signup = async (req, res) => {
   const { email, password, name } = req.body;
 
+  console.log(email);
+
   try {
     if (!email || !password || !name) {
-      throw new Error("All fields are required");
+      return res
+        .status(400)
+        .json({ success: false, message: "All fields are required" });
     }
 
     const userAlreadyExists = await User.findOne({ email });
+
+    console.log("userAlreadyExists", userAlreadyExists);
     if (userAlreadyExists) {
       return res
         .status(400)
         .json({ success: false, message: " User already exists" });
     }
 
-    const hashedPassword = await bcrypts.hash(password, 10);
+    const hashedPassword = await bcryptjs.hash(password, 10);
+
     const verficationToken = Math.floor(
       100000 + Math.random() * 900000
     ).toString();
@@ -42,6 +51,9 @@ export const signup = async (req, res) => {
       },
     });
   } catch (error) {
-    res.status(400).json({ success: false, message: "user already exists" });
+    res.status(500).json({
+      success: false,
+      message: error.message || "Something went wrong",
+    });
   }
 };
