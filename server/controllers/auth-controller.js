@@ -5,13 +5,9 @@ import { generateTokenandSetCokkie } from "../utils/generateTokenandSetCookie.js
 export const signup = async (req, res) => {
   const { email, password, name } = req.body;
 
-  console.log(email);
-
   try {
     if (!email || !password || !name) {
-      return res
-        .status(400)
-        .json({ success: false, message: "All fields are required" });
+      throw new Error("All fields are required");
     }
 
     const userAlreadyExists = await User.findOne({ email });
@@ -51,9 +47,9 @@ export const signup = async (req, res) => {
       },
     });
   } catch (error) {
-    res.status(500).json({
+    res.status(400).json({
       success: false,
-      message: error.message || "Something went wrong",
+      message: error.message,
     });
   }
 };
